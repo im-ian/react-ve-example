@@ -1,28 +1,35 @@
-import { style, createVar } from "@vanilla-extract/css";
+import { style } from "@vanilla-extract/css";
+import { sprinkles } from "../../css/sprinkles.css";
 
-const padding = createVar();
+export const className = style([
+  sprinkles({
+    padding: "medium",
+    borderRadius: "medium",
 
-const border = createVar();
-const borderRadius = createVar();
+    background: {
+      lightMode: "white",
+      darkMode: "gray-700",
+    },
 
-const bgColor = createVar();
+    borderWidth: "thin",
+    borderStyle: "solid",
+    borderColor: {
+      lightMode: "gray-300",
+      darkMode: "gray-700",
+    },
 
-export const className = style({
-  vars: {
-    [padding]: "6px 12px",
+    color: {
+      lightMode: "gray-700",
+      darkMode: "white",
+    },
 
-    [border]: "1px solid #ccc",
-    [borderRadius]: "8px",
-
-    [bgColor]: "white",
+    transitionProperty: "all",
+    transitionDuration: "normal",
+    transitionTimingFunction: "ease-in-out",
+  }),
+  {
+    ":focus": {
+      outline: "thin solid gray-400",
+    },
   },
-  border,
-  padding,
-  borderRadius,
-  transition: "background-color 0.3s ease",
-  backgroundColor: bgColor,
-
-  ":focus": {
-    outline: "2px solid skyblue",
-  },
-});
+]);
