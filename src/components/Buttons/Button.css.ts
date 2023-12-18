@@ -1,5 +1,6 @@
 import { style } from "@vanilla-extract/css";
 import { sprinkles } from "../../css/sprinkles.css";
+import { vars } from "../../css/vars.css";
 
 export const className = style([
   sprinkles({
@@ -7,21 +8,11 @@ export const className = style([
 
     padding: "medium",
     borderRadius: "medium",
+    borderWidth: "none",
 
-    background: {
-      lightMode: "white",
-      darkMode: "gray-700",
-    },
-
-    borderWidth: "thin",
-    borderStyle: "solid",
-    borderColor: {
-      lightMode: "gray-300",
-      darkMode: "white",
-    },
+    background: "brand-400",
 
     fontSize: "1x",
-
     color: {
       lightMode: "gray-700",
       darkMode: "white",
@@ -32,8 +23,9 @@ export const className = style([
     transitionTimingFunction: "ease-in-out",
   }),
   {
-    ":focus": {
-      outline: "thin solid gray-400",
+    cursor: "pointer",
+    ":hover": {
+      background: vars.color["brand-500"],
     },
   },
 ]);

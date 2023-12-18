@@ -14,5 +14,4 @@ globalStyle("html, body, input", {
   fontFamily: "Pretendard",
   fontSize: "16px",
   lineHeight: "1.5",
-  color: "#333",
 });

@@ -9,6 +9,9 @@ const responsiveProperties = defineProperties({
   },
   defaultCondition: "mobile",
   properties: {
+    width: ["100vh", "2.5rem"],
+    height: ["100vh", "2.5rem"],
+
     display: ["none", "flex", "block", "inline", "inline-block"],
     flexDirection: ["row", "column"],
     gap: vars.space,
@@ -36,7 +39,11 @@ const responsiveProperties = defineProperties({
     fontFamily: vars.fontFamily,
 
     transitionProperty: ["none", "all"],
-    transitionDuration: ["none", "fast", "normal", "slow"],
+    transitionDuration: {
+      fast: "0.1s",
+      normal: "0.25s",
+      slow: "0.5s",
+    },
     transitionTimingFunction: ["ease", "ease-in", "ease-out", "ease-in-out"],
   },
   shorthands: {
