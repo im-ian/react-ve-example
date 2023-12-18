@@ -1,7 +1,7 @@
 import { Button } from "./components/Buttons/Button.tsx";
 import { TextInput } from "./components/Inputs/TextInput";
 
-import "./styles/global.css.ts";
+import "./css/global.css.ts";
 import { sprinkles } from "./css/sprinkles.css.ts";
 import Flex from "./components/Sections/Flex.tsx";
 
