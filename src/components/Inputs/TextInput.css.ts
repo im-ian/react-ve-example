@@ -1,5 +1,7 @@
-import { style } from "@vanilla-extract/css";
+import { createVar, style } from "@vanilla-extract/css";
 import { sprinkles } from "../../css/sprinkles.css";
+
+const inputWidthVar = createVar();
 
 export const className = style([
   sprinkles({
@@ -32,6 +34,10 @@ export const className = style([
     transitionTimingFunction: "ease-in-out",
   }),
   {
+    vars: {
+      [inputWidthVar]: "100%",
+    },
+    width: inputWidthVar,
     ":focus": {
       outline: "thin solid gray-400",
     },

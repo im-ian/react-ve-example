@@ -16,8 +16,8 @@ function App() {
         },
       })}
     >
-      <Flex direction="row">
-        <Flex.Item>
+      <Flex direction={"row"} gap={"8px"}>
+        <Flex.Item flex={"1"}>
           <TextInput />
         </Flex.Item>
         <Flex.Item>

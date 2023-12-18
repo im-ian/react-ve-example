@@ -1,23 +1,26 @@
 import { HTMLAttributes, PropsWithChildren } from "react";
+import { assignInlineVars } from "@vanilla-extract/dynamic";
 
 import {
   flexDirectionVariant,
   FlexDirectionVariant,
   flexClassName,
   flexItemClassName,
+  flexItemFlexVar,
+  flexItemWidthVar,
+  flexGapVar,
 } from "./Flex.css";
 import { classNames } from "../../utils/class";
 
 type DivProps = HTMLAttributes<HTMLDivElement>;
-type FlexProps = PropsWithChildren<DivProps>;
+type BoxProps = PropsWithChildren<DivProps>;
 
-function Flex({
-  className,
-  direction = "row",
-  ...props
-}: FlexProps & {
+type FlexProps = BoxProps & {
+  gap?: string;
   direction?: FlexDirectionVariant;
-}) {
+};
+
+function Flex({ className, gap, direction = "row", ...props }: FlexProps) {
   return (
     <div
       className={classNames([
@@ -25,14 +28,29 @@ function Flex({
         flexDirectionVariant[direction],
         className,
       ])}
+      style={assignInlineVars({
+        [flexGapVar]: gap,
+      })}
       {...props}
     />
   );
 }
 
-function FlexItem({ className, ...props }: FlexProps) {
+type FlexItemProps = BoxProps & {
+  flex?: string;
+  width?: string;
+};
+
+function FlexItem({ className, flex, width, ...props }: FlexItemProps) {
   return (
-    <div className={classNames([flexItemClassName, className])} {...props} />
+    <div
+      className={classNames([flexItemClassName, className])}
+      style={assignInlineVars({
+        [flexItemFlexVar]: flex,
+        [flexItemWidthVar]: width,
+      })}
+      {...props}
+    />
   );
 }
 
